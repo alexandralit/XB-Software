@@ -1,0 +1,265 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 18px;
+  line-height: 100%;
+}
+
+ol, 
+ul {
+	list-style: none;
+}
+
+input {
+  outline: none;
+}
+
+.main {
+  max-width: 530px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+  margin: 0 auto;
+  padding: 30px;
+}
+
+.main__input {
+  width: 250px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 18px;
+  line-height: 100%;
+  padding: 10px;
+  border: none;
+  background-color: #e9ecef;
+  margin-right: 20px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.main__input::placeholder {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  line-height: 1;
+}
+
+.main__wrapper {
+  display: flex;
+  align-items: center;
+  justify-items: center;
+  margin: 30px 0 5px;
+}
+
+.main__btn-add {
+  margin-right: 10px;
+}
+
+.main__btn-add,
+.main__btn-reset {
+  width: 90px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 18px;
+  line-height: 100%;
+  outline: none;
+  border: none;
+  padding: 10px 15px;
+  color: #222;
+  background-color: #9ac1f0;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.list {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-start;
+  margin: 25px 0 0;
+}
+
+.list__item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #e2efff;
+  padding: 5px 20px 5px 10px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.list__item:not(:last-child) {
+  margin-right: 20px;
+}
+
+.list__item-text {
+  color: #222;
+}
+
+.list__item-remove {
+  width: 12px;
+  height: 12px;
+  opacity: 0.3;
+  position: relative;
+  cursor: pointer;
+}
+
+.list__item-remove:hover {
+  opacity: 1;
+}
+
+.list__item-remove:before, 
+.list__item-remove:after {
+  position: absolute;
+  left: 15px;
+  content: ' ';
+  height: 12px;
+  width: 2px;
+  background-color: #333;
+}
+
+.list__item-remove:before {
+  transform: rotate(45deg);
+}
+
+.list__item-remove:after {
+  transform: rotate(-45deg);
+}
+
+.main__checkbox {
+  position: absolute;
+  z-index: -1;
+  opacity: 0;
+}
+
+label {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  color: #222;
+  cursor: pointer;
+}
+
+.main__error {
+  align-self: flex-start;
+  display: none;
+  font-size: 14px;
+  color: rgb(119, 8, 8);
+}
+
+.toggle,
+.toggle:active{
+  position: absolute;
+  top: 0;
+  height: 0;
+  width: 0;
+  opacity: 0;
+  border: none;
+  outline: none;
+}
+
+.checkbox-label{
+  display: block;
+  position: relative;
+  padding: 18px;
+  margin-bottom: 20px;
+  font-size: 14px;
+  line-height: 16px;
+  width: 70px;
+  height: 36px;
+  border-radius: 18px;
+  background-color: #e9ecef;
+  cursor: pointer;
+}
+
+.checkbox-label:before{
+  content: '';
+  display: block;
+  position: absolute;
+  z-index: 1;
+  line-height: 34px;
+  text-indent: 40px;
+  height: 36px;
+  width: 36px;
+  border-radius: 100%;
+  top: 0px;
+  left: 0px;
+  right: auto;
+  background-color: #e9ecef;
+  box-shadow: 0 3px 3px rgba(0,0,0,.2),0 0 0 2px #dddddd;
+}
+
+.checkbox-label:after{
+  content: attr(data-off);
+  display: block;
+  position: absolute;
+  z-index: 0;
+  top: 0;
+  left: -115px;
+  padding: 10px;
+  height: 100%;
+  width: 100px;
+  text-align: right;
+  color: #bfbfbf;
+  white-space: nowrap;
+}
+
+.toggle:checked + .checkbox-label{
+  box-shadow: inset 0 0 0 20px #9ac1f0, 0 0 0 2px #9ac1f0;
+}
+
+.toggle:checked + .checkbox-label:before{
+  left: calc(100% - 36px);
+  box-shadow: 0 0 0 2px transparent, 0 3px 3px rgba(0,0,0,.3);
+}
+  
+.toggle:checked + .checkbox-label:after{
+  content: attr(data-on);
+  left: 65px;
+  width: 36px;
+  color: #222;
+}
+  
+@media (max-width: 530px) {
+  .main {
+    max-width: 320px;
+  }
+
+  .main__wrapper {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .main__input {
+    margin: 0 0 40px;
+  }
+
+  .list {
+    justify-content: space-evenly;
+  }
+
+  .list__item {
+    margin: 0 10px 10px;
+  }
+  
+  .list__item:not(:last-child) {
+    margin: 0 10px 10px;
+  }
+
+  .main__container {
+    position: relative;
+  }
+  
+  .main__error {
+    position: absolute;
+    top: 75px;
+  }
+}
